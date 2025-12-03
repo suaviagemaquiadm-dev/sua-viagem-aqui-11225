@@ -1,0 +1,94 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero-background",
+      "description": "Night city landscape",
+      "imageUrl": "https://images.unsplash.com/photo-1599939571322-792a326991f2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxuaWdodCUyMGNpdHl8ZW58MHx8fHwxNzY0NjIzMTk5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "night city"
+    },
+    {
+      "id": "ai-builder-visual",
+      "description": "Visual representation of AI",
+      "imageUrl": "https://images.unsplash.com/photo-1761223976145-a85ffe11fc57?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxBSSUyMHZpc3VhbHxlbnwwfHx8fDE3NjQ2MjMxOTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "AI visual"
+    },
+    {
+      "id": "partner-boat-tour",
+      "description": "Boat tour in a beautiful location",
+      "imageUrl": "https://images.unsplash.com/photo-1588351149948-f46808c0b41f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxib2F0JTIwdG91cnxlbnwwfHx8fDE3NjQ2MjMxOTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "boat tour"
+    },
+    {
+      "id": "partner-waterfall-hike",
+      "description": "Hiking trail leading to a waterfall",
+      "imageUrl": "https://images.unsplash.com/photo-1642894362307-7ff902242f27?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxoaWtlJTIwd2F0ZXJmYWxsfGVufDB8fHx8MTc2NDYyMzE5OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "hike waterfall"
+    },
+    {
+      "id": "partner-seaside-inn",
+      "description": "Inn with a view of the sea",
+      "imageUrl": "https://images.unsplash.com/photo-1735080934568-95eddf30565d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzZWFzaWRlJTIwaW5ufGVufDB8fHx8MTc2NDYyMzE5OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "seaside inn"
+    },
+    {
+      "id": "partner-local-restaurant",
+      "description": "Interior of a local restaurant",
+      "imageUrl": "https://images.unsplash.com/photo-1729394405518-eaf2a0203aa7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxyZXN0YXVyYW50JTIwaW50ZXJpb3J8ZW58MHx8fHwxNzY0NjA3MTYyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "restaurant interior"
+    },
+    {
+      "id": "partner-bike-rental",
+      "description": "Bikes available for rental on the coast",
+      "imageUrl": "https://images.unsplash.com/photo-1472709171579-139831cdf19e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxiaWtlJTIwcmVudGFsfGVufDB8fHx8MTc2NDYyMzE5OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "bike rental"
+    },
+    {
+      "id": "partner-historical-guide",
+      "description": "Historical city street",
+      "imageUrl": "https://images.unsplash.com/photo-1586012440333-79fc5efce80e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxoaXN0b3JpY2FsJTIwc3RyZWV0fGVufDB8fHx8MTc2NDYyMzE5OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "historical street"
+    },
+    {
+      "id": "partner-beach-bar",
+      "description": "Cozy beach bar at night",
+      "imageUrl": "https://images.unsplash.com/photo-1539681607322-8e907b3682aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxiZWFjaCUyMGJhcnxlbnwwfHx8fDE3NjQ2MTU2Mjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "beach bar"
+    },
+    {
+      "id": "partner-scuba-diving",
+      "description": "Scuba diving experience",
+      "imageUrl": "https://images.unsplash.com/photo-1682687982502-1529b3b33f85?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzY3ViYSUyMGRpdmluZ3xlbnwwfHx8fDE3NjQ2MTU2Mjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "scuba diving"
+    },
+    {
+      "id": "suggestion-nordeste",
+      "description": "Praias no Nordeste",
+      "imageUrl": "https://images.unsplash.com/photo-1729788272290-8ea931cd6613?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxub3JkZXN0ZSUyMGJlYWNofGVufDB8fHx8MTc2NDYyMzgzNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "nordeste beach"
+    },
+    {
+      "id": "suggestion-amazonia",
+      "description": "Aventuras na Amazônia",
+      "imageUrl": "https://images.unsplash.com/photo-1761998849593-e954aa29e1c1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxhbWF6b25pYSUyMGFkdmVudHVyZXxlbnwwfHx8fDE3NjQ2MjM4MzV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "amazonia adventure"
+    },
+    {
+      "id": "suggestion-culinaria-sp",
+      "description": "Culinária em São Paulo",
+      "imageUrl": "https://images.unsplash.com/photo-1617853570203-63c7584c9ccd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzYW8lMjBwYXVsbyUyMGZvb2R8ZW58MHx8fHwxNzY0NjIzODM1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sao paulo food"
+    },
+    {
+      "id": "vitor-sales-avatar",
+      "description": "Avatar for the Vitor Sales chatbot",
+      "imageUrl": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwcm9mZXNzaW9uYWwlMjBtYW58ZW58MHx8fHwxNzY0NjgyNjk1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "professional man"
+    },
+    {
+      "id": "sophia-avatar",
+      "description": "Avatar for the Sophia chatbot",
+      "imageUrl": "https://images.unsplash.com/photo-1607748862156-7c548e7e98f4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmcmllbmRseSUyMHdvbWFufGVufDB8fHx8MTc2NDcyNTkxNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "friendly woman"
+    }
+  ]
+}

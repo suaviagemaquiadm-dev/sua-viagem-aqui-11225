@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guia Virtual - Sua Viagem Aqui</title>
+    <link rel="manifest" href="/manifest.json" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+</head>
+<body class="bg-slate-900 flex flex-col min-h-screen">
+
+    <!-- Cabeçalho -->
+    <header id="main-header" class="bg-slate-900/80 backdrop-blur-lg shadow-lg sticky top-0 z-50 border-b border-slate-700">
+        <!-- O cabeçalho será carregado aqui pelo layout.js -->
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <div class="text-center">
+            <h1 class="text-4xl font-bold mb-4">Guia Virtual Lúa</h1>
+            <p class="text-slate-400 mb-8">Sua assistente de viagens inteligente.</p>
+        </div>
+
+        <!-- Container do Chatbot -->
+        <div id="chatbot-container" class="bg-slate-800 rounded-lg shadow-xl mx-auto" style="height: 70vh;">
+             <div class="flex items-center justify-center h-full">
+                <div class="text-center">
+                    <i class="fas fa-comments fa-3x text-slate-500 mb-4" aria-hidden="true"></i>
+                    <p class="text-slate-500">O Chatbot está sendo preparado...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer id="main-footer" class="bg-slate-800/50 border-t border-slate-700">
+        <!-- O rodapé será carregado aqui pelo layout.js -->
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/src/main.js" type="module"></script>
+    <script src="/src/layout.js" type="module"></script>
+</body>
+</html>

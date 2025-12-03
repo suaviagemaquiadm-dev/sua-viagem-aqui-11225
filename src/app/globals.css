@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 45 96% 60%;
+    --primary-foreground: 222 47% 11%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 210 40% 9%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 45 96% 55%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 45 96% 60%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222 47.4% 11.2%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 39% 16%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47.4% 11.2%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 45 96% 60%;
+    --primary-foreground: 222 47% 11%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 45 96% 55%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 223 27% 22%;
+    --input: 222 39% 16%;
+    --ring: 45 96% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+  .glass-effect {
+    @apply bg-slate-900/50 backdrop-blur-md border border-slate-700;
+  }
+  
+  .btn-modern {
+    @apply relative overflow-hidden transition-all duration-300 ease-in-out;
+  }
+
+  .btn-modern::before {
+    content: '';
+    @apply absolute top-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-all duration-500;
+    left: -100%;
+  }
+
+  .btn-modern:hover::before {
+    left: 100%;
+  }
+}

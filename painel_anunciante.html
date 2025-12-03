@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Parceiro | SVA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="flex h-screen overflow-hidden relative bg-slate-900 selection:bg-amber-500 selection:text-white">
+
+    <!-- Background Decorativo -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <img src="https://images.unsplash.com/photo-1524850011238-e3d235c2d4a1?q=80&w=2069&auto=format&fit=crop" 
+             alt="Background Painel" 
+             class="w-full h-full object-cover opacity-15">
+        <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-900/90 to-slate-900/80"></div>
+    </div>
+
+    <!-- Sidebar Desktop -->
+    <aside class="w-64 bg-slate-900/80 backdrop-blur-xl border-r border-slate-800/50 flex-col hidden md:flex relative z-20">
+        <div class="p-6 border-b border-slate-800/50">
+            <span class="text-xl font-bold text-white">Sua Viagem <span class="text-amber-400">Aqui</span></span>
+            <p class="text-xs text-slate-500 mt-1">Área do Parceiro</p>
+        </div>
+        <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
+            <button onclick="switchTab('dashboard')" id="nav-dashboard" class="sidebar-link active w-full text-left">
+                <i class="fas fa-chart-line w-6 mr-3"></i> Dashboard
+            </button>
+            <button onclick="switchTab('profile')" id="nav-profile" class="sidebar-link w-full text-left">
+                <i class="fas fa-store w-6 mr-3"></i> Meu Negócio
+            </button>
+            <button onclick="switchTab('offers')" id="nav-offers" class="sidebar-link w-full text-left">
+                <i class="fas fa-ticket-alt w-6 mr-3"></i> Ofertas
+            </button>
+        </nav>
+        <div class="p-4 border-t border-slate-800/50">
+            <button id="logout-btn" class="flex items-center text-red-400 hover:text-red-300 w-full px-4 py-2 transition-colors hover:bg-slate-800/50 rounded-lg">
+                <i class="fas fa-sign-out-alt w-6 mr-2"></i> Sair
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 overflow-y-auto relative z-10">
+        
+        <!-- Mobile Header -->
+        <div class="md:hidden bg-slate-900/90 backdrop-blur-md p-4 border-b border-slate-800 flex justify-between items-center sticky top-0 z-30">
+            <span class="font-bold text-white">Painel SVA</span>
+            <div class="flex items-center gap-4">
+                <button id="logout-btn-mobile" class="text-red-400"><i class="fas fa-sign-out-alt"></i></button>
+            </div>
+        </div>
+
+        <div class="p-6 md:p-10 max-w-6xl mx-auto">
+            
+            <!-- Loading State -->
+            <div id="loading-state" class="text-center py-20">
+                <div class="modern-spinner mx-auto mb-4"></div>
+                <p class="text-slate-400">A carregar o seu painel...</p>
+            </div>
+
+            <!-- Auth Error -->
+            <div id="auth-error" class="hidden text-center py-20 glass-effect rounded-2xl">
+                <i class="fas fa-lock text-4xl text-amber-400 mb-4"></i>
+                <h2 class="text-2xl font-bold text-white mb-2">Acesso Restrito</h2>
+                <p class="text-slate-400 mb-6">Faça login como parceiro para aceder a esta área.</p>
+                <a href="pagina_login.html" class="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-2 px-6 rounded-lg transition">Ir para Login</a>
+            </div>
+
+            <!-- Content Area -->
+            <div id="dashboard-content" class="hidden animate-fade-in">
+                
+                <!-- Tab: Dashboard -->
+                <div id="tab-dashboard" class="space-y-8">
+                    <header class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                        <div>
+                            <h1 class="text-2xl md:text-3xl font-bold text-white" id="welcome-msg">Olá, Parceiro</h1>
+                            <p class="text-slate-400">Visão geral do seu desempenho.</p>
+                        </div>
+                        <a href="#" id="public-link" target="_blank" class="text-amber-400 hover:text-amber-300 hover:underline text-sm transition-colors flex items-center bg-slate-800 px-4 py-2 rounded-lg border border-slate-700">
+                            Ver página pública <i class="fas fa-external-link-alt ml-2"></i>
+                        </a>
+                    </header>
+
+                    <!-- Stats Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="card hover:bg-slate-800/50 transition-colors duration-300">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <p class="text-slate-400 text-sm font-medium">Visualizações</p>
+                                    <h3 class="text-3xl font-bold text-white mt-2">1,240</h3>
+                                </div>
+                                <div class="p-3 bg-blue-500/20 rounded-lg text-blue-400"><i class="fas fa-eye"></i></div>
+                            </div>
+                        </div>
+                        <div class="card hover:bg-slate-800/50 transition-colors duration-300">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <p class="text-slate-400 text-sm font-medium">Cliques no WhatsApp</p>
+                                    <h3 class="text-3xl font-bold text-white mt-2">48</h3>
+                                </div>
+                                <div class="p-3 bg-green-500/20 rounded-lg text-green-400"><i class="fab fa-whatsapp"></i></div>
+                            </div>
+                        </div>
+                        <div class="card hover:bg-slate-800/50 transition-colors duration-300">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <p class="text-slate-400 text-sm font-medium">Plano Atual</p>
+                                    <h3 class="text-xl font-bold text-amber-400 mt-2 uppercase" id="plan-display">--</h3>
+                                </div>
+                                <div class="p-3 bg-amber-500/20 rounded-lg text-amber-400"><i class="fas fa-crown"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab: Profile (Edit) -->
+                <div id="tab-profile" class="hidden space-y-8">
+                    <h2 class="text-2xl font-bold text-white mb-6">Editar Informações Públicas</h2>
+                    <div class="card">
+                        <form id="profile-form" class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-300 mb-2">Nome do Negócio</label>
+                                    <input type="text" id="businessName" class="w-full bg-slate-800/80 border border-slate-600 rounded-lg p-3 text-white focus:border-amber-500 focus:ring-1 focus:ring-amber-500 focus:outline-none transition-all">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-300 mb-2">Telefone (WhatsApp)</label>
+                                    <input type="text" id="phone" class="w-full bg-slate-800/80 border border-slate-600 rounded-lg p-3 text-white focus:border-amber-500 focus:ring-1 focus:ring-amber-500 focus:outline-none transition-all">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-300 mb-2">Cidade</label>
+                                    <input type="text" id="city" class="w-full bg-slate-800/80 border border-slate-600 rounded-lg p-3 text-white focus:border-amber-500 focus:ring-1 focus:ring-amber-500 focus:outline-none transition-all">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-300 mb-2">Estado</label>
+                                    <input type="text" id="state" class="w-full bg-slate-800/80 border border-slate-600 rounded-lg p-3 text-white focus:border-amber-500 focus:ring-1 focus:ring-amber-500 focus:outline-none transition-all uppercase" maxlength="2">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-slate-300 mb-2">Descrição</label>
+                                <textarea id="description" rows="4" class="w-full bg-slate-800/80 border border-slate-600 rounded-lg p-3 text-white focus:border-amber-500 focus:ring-1 focus:ring-amber-500 focus:outline-none transition-all" placeholder="Conte aos viajantes o que torna o seu negócio especial..."></textarea>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-slate-300 mb-2">URL da Imagem de Capa (Link)</label>
+                                <input type="url" id="imageUrl" class="w-full bg-slate-800/80 border border-slate-600 rounded-lg p-3 text-white focus:border-amber-500 focus:ring-1 focus:ring-amber-500 focus:outline-none transition-all" placeholder="https://...">
+                                <p class="text-xs text-slate-400 mt-1">Use links do Unsplash ou de hospedagem pública.</p>
+                            </div>
+
+                            <div class="pt-4 flex justify-end">
+                                <button type="submit" id="save-btn" class="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white font-bold py-3 px-8 rounded-lg transition-all shadow-lg transform hover:-translate-y-1">
+                                    Salvar Alterações
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Tab: Offers -->
+                <div id="tab-offers" class="hidden space-y-8">
+                    <div class="flex justify-between items-center">
+                         <h2 class="text-2xl font-bold text-white">Minhas Ofertas</h2>
+                         <button onclick="alert('Funcionalidade em desenvolvimento')" class="bg-slate-700 hover:bg-slate-600 text-white px-4 py-2 rounded-lg transition font-bold border border-slate-600">
+                            <i class="fas fa-plus mr-2"></i> Nova Oferta
+                         </button>
+                    </div>
+                    
+                    <div class="card text-center py-12">
+                        <div class="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-600">
+                            <i class="fas fa-ticket-alt text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Nenhuma oferta ativa</h3>
+                        <p class="text-slate-400 max-w-md mx-auto">Crie ofertas especiais para atrair mais viajantes e destacar o seu negócio.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-4 right-4 bg-green-600 text-white px-6 py-3 rounded-lg shadow-xl transform translate-y-20 transition-transform duration-300 flex items-center z-50">
+        <i class="fas fa-check-circle mr-3"></i>
+        <span>Dados salvos com sucesso!</span>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/layout.js"></script>
+    <script type="module" src="./src/painel_anunciante.js"></script>
+</body>
+</html>

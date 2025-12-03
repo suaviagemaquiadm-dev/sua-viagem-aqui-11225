@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",()=>{const t=document.getElementById("last-updated");if(t){const e=new Date,n={year:"numeric",month:"long",day:"numeric"},o=e.toLocaleDateString("pt-BR",n);t.textContent+=` ${o}`}});

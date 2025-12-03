@@ -1,0 +1,1202 @@
+<!-- 🔍 TESTE GIT - Rosana sócia fundadora -->
+<!-- Forçar atualização de cache: 2025-10-09 12:45 -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sua Viagem Aqui</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- NOVO: Script do Mercado Pago -->
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background-color: #111827; color: #f9fafb; }
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+        @keyframes slideInUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        @keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 20px rgba(252, 211, 77, 0.3); } 50% { box-shadow: 0 0 40px rgba(252, 211, 77, 0.5); } }
+        @keyframes infinite-scroll { from { transform: translateX(0); } to { transform: translateX(-100%); } }
+        .advertiser-card-image { transition: opacity 0.5s ease-in-out; }
+        .float-animation { animation: float 6s ease-in-out infinite; }
+        .slide-in-up { animation: slideInUp 0.8s ease-out; }
+        .pulse-glow { animation: pulse-glow 2s infinite; }
+        .scrolling-logos { display: inline-flex; animation: infinite-scroll 40s linear infinite; }
+        .glass-effect { background: rgba(17, 24, 39, 0.5); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .premium-card { background: linear-gradient(145deg, #1f2937, #111827); border: 1px solid #374151; transition: all 0.3s ease; }
+        .premium-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); border-color: #fca5a5; }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 25px 50px rgba(0,0,0,0.25); }
+        .card-hover:hover img { transform: scale(1.05); }
+        .card-hover img { transition: transform 0.3s ease; }
+        .modern-spinner { width: 24px; height: 24px; border: 3px solid rgba(255,255,255,0.3); border-top: 3px solid #fcd34d; border-radius: 50%; animation: spin 1s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .text-gradient-gold { background: linear-gradient(135deg, #fcd34d, #fbbf24, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        @media (max-width: 768px) { .hero-title { font-size: 2.5rem; } .hero-subtitle { font-size: 1.125rem; } }
+        .btn-modern { position: relative; overflow: hidden; transition: all 0.3s ease; }
+        .btn-modern::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); transition: left 0.5s; }
+        .btn-modern:hover::before { left: 100%; }
+    </style>
+</head>
+<body class="bg-slate-900">
+    <!-- Header Premium -->
+    <header class="bg-slate-900/80 backdrop-blur-lg shadow-lg sticky top-0 z-50 border-b border-slate-700">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center group">
+                    <div class="relative">
+                        <svg class="h-10 w-10 mr-3 text-amber-400 transition-transform group-hover:scale-110" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21s-8-4.5-8-11.8A8 8 0 0112 3a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z" />
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <span class="text-2xl font-bold text-white">Sua Viagem <span class="text-amber-400">Aqui</span></span>
+                </a>
+                <!-- Navegação Desktop -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#como-funciona" class="text-slate-300 hover:text-amber-400 font-medium transition-colors relative group">
+                        Como Funciona
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-400 transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#planos" class="text-slate-300 hover:text-amber-400 font-medium transition-colors relative group">
+                        Planos
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-400 transition-all group-hover:w-full"></span>
+                    </a>
+                </nav>
+                <!-- Ações do usuário -->
+                <div id="user-actions" class="flex items-center space-x-4">
+                     <a href="cadastro_anunciantes.html" id="anuncie-btn" class="hidden md:flex items-center bg-transparent border border-amber-400 text-amber-400 px-4 py-2 rounded-full hover:bg-amber-400 hover:text-slate-900 transition-all">
+                        <i class="fas fa-bullhorn mr-2"></i>
+                        <span class="font-bold">Anuncie Seu Negócio</span>
+                    </a>
+                    <a href="pagina_login.html" id="login-btn" class="flex items-center bg-amber-500 text-slate-900 px-4 py-2 rounded-full hover:bg-amber-400 transition-all shadow-lg hover:shadow-amber-500/20">
+                        <i class="fas fa-sign-in-alt text-lg mr-2"></i>
+                        <span class="hidden sm:inline font-bold">Login</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Hero Section Premium -->
+    <section id="hero-section" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background -->
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-black/70 to-slate-900/90 z-10"></div>
+            <img src="https://images.unsplash.com/photo-1534237693999-d89bda11091f?q=80&w=2400&auto=format&fit=crop"
+                  class="w-full h-full object-cover" alt="Paisagem noturna de cidade">
+            <!-- Elementos flutuantes decorativos -->
+            <div class="absolute top-20 left-10 w-20 h-20 bg-amber-500/10 rounded-full blur-xl float-animation"></div>
+            <div class="absolute bottom-32 right-20 w-32 h-32 bg-white/5 rounded-full blur-2xl float-animation" style="animation-delay: 2s;"></div>
+        </div>
+        <div class="relative z-20 container mx-auto px-4 text-center">
+            <!-- Título principal -->
+            <div class="slide-in-up">
+                <h1 class="hero-title text-5xl md:text-7xl font-black text-white mb-6 leading-tight">
+                    A plataforma definitiva para
+                    <span class="text-gradient-gold">
+                        agências de viagens
+                    </span>
+                </h1>
+                <p class="hero-subtitle text-xl md:text-2xl text-slate-300 mb-12 max-w-3xl mx-auto font-light">
+                    Eleve a experiência dos seus clientes com ferramentas exclusivas e acesso a pacotes premium.
+                </p>
+            </div>
+            <!-- Formulário de busca -->
+            <div class="max-w-7xl mx-auto slide-in-up" style="animation-delay: 0.3s;">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Bloco 1: Buscar por Destino -->
+                    <div class="glass-effect rounded-3xl p-8 shadow-2xl flex flex-col">
+                        <h3 class="text-2xl font-bold text-white mb-6 text-left">Buscar Eventos e Passeios</h3>
+                        <div class="space-y-6 flex-grow">
+                            <div class="relative">
+                                <label class="block text-white text-sm font-semibold mb-3 text-left">
+                                    <i class="fas fa-map-marker-alt mr-2"></i>Para onde quero ir
+                                </label>
+                                <input type="text" id="destino-input"
+                                       placeholder="Ex: Rio de Janeiro, Praia"
+                                       class="w-full bg-slate-800 border border-slate-600 rounded-xl px-4 py-4 text-white placeholder-slate-400 focus:bg-slate-700 focus:border-amber-400 transition-all">
+                            </div>
+                            <div class="relative">
+                                <label class="block text-white text-sm font-semibold mb-3 text-left">
+                                    <i class="fas fa-calendar-alt mr-2"></i>Quando?
+                                </label>
+                                <input type="date" id="data-input"
+                                       class="w-full bg-slate-800 border border-slate-600 rounded-xl px-4 py-4 text-white focus:bg-slate-700 focus:border-amber-400 transition-all">
+                            </div>
+                        </div>
+                        <button id="search-destino-btn" class="btn-modern pulse-glow w-full mt-8 bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-3 px-8 rounded-xl text-lg shadow-xl">
+                            <span class="search-text flex items-center justify-center"><i class="fas fa-search mr-3"></i>Buscar</span>
+                            <span class="search-loading hidden items-center justify-center"><div class="modern-spinner mr-3" style="border-top-color: #111827;"></div>Buscando...</span>
+                        </button>
+                    </div>
+
+                    <!-- Bloco 2: Filtrar por Categoria -->
+                    <div class="glass-effect rounded-3xl p-8 shadow-2xl flex flex-col">
+                        <h3 class="text-2xl font-bold text-white mb-6 text-left">Encontrar por Categoria</h3>
+                        <div class="space-y-6 flex-grow">
+                            <div class="relative">
+                                <label class="block text-white text-sm font-semibold mb-3 text-left">
+                                    <i class="fas fa-tags mr-2"></i>Qual tipo de serviço?
+                                </label>
+                                <select id="categoria-select" class="w-full bg-slate-800 border border-slate-600 rounded-xl px-4 py-4 text-white focus:bg-slate-700 focus:border-amber-400 transition-all">
+                                    <option value="todos">Todas as Categorias</option>
+                                    <option value="agencias">Agências de Viagens</option>
+                                    <option value="aluguel">Aluguel de Carros, Motos e Bicicletas</option>
+                                    <option value="bares">Bares e Vida Noturna</option>
+                                    <option value="camping">Camping</option>
+                                    <option value="ecoturismo">Ecoturismo e Aventura</option>
+                                    <option value="experiencias">Experiências Culturais</option>
+                                    <option value="fotografos">Fotógrafos de Viagem</option>
+                                    <option value="guias">Guias de Turismo</option>
+                                    <option value="hospedagem">Hotéis e Pousadas</option>
+                                    <option value="mergulho">Mergulho</option>
+                                    <option value="passeios_barco">Passeios de Barco / Lancha</option>
+                                    <option value="restaurantes">Restaurantes</option>
+                                    <option value="transfer">Transfer e Receptivo</option>
+                                    <option value="turismo_rural">Turismo Rural</option>
+                                </select>
+                            </div>
+                            <div class="relative">
+                                <label class="block text-white text-sm font-semibold mb-3 text-left">
+                                    <i class="fas fa-map-pin mr-2"></i>Em qual local?
+                                </label>
+                                <input type="text" id="local-input"
+                                       placeholder="Ex: São Paulo"
+                                       class="w-full bg-slate-800 border border-slate-600 rounded-xl px-4 py-4 text-white placeholder-slate-400 focus:bg-slate-700 focus:border-amber-400 transition-all">
+                            </div>
+                        </div>
+                        <button id="search-categoria-btn" class="btn-modern w-full mt-8 bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 px-8 rounded-xl text-lg shadow-xl">
+                             <span class="search-text flex items-center justify-center"><i class="fas fa-filter mr-3"></i>Filtrar</span>
+                             <span class="search-loading hidden items-center justify-center"><div class="modern-spinner mr-3"></div>Filtrando...</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#como-funciona" class="text-white/80 hover:text-white transition-colors">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Resultados da Busca -->
+    <section id="search-results-section" class="hidden container mx-auto px-4 py-16">
+        <div class="flex justify-between items-center mb-12">
+            <h2 class="text-4xl font-bold text-white">Resultados da Busca</h2>
+            <button id="clear-search-btn" class="bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 px-6 rounded-lg transition">
+                <i class="fas fa-times mr-2"></i>Limpar Busca
+            </button>
+        </div>
+        <div id="search-results-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            </div>
+        <div id="no-results-message" class="hidden text-center py-16">
+            <i class="fas fa-exclamation-circle text-5xl text-amber-400 mb-4"></i>
+            <h3 class="text-2xl font-bold text-white">Nenhum resultado encontrado</h3>
+            <p class="text-slate-400 mt-2">Tente ajustar os seus filtros de busca.</p>
+        </div>
+    </section>
+    
+    <!-- Conteúdo Principal -->
+    <main id="main-content" class="container mx-auto px-4 py-16">
+
+        <!-- Previsão do Tempo -->
+        <section id="weather-section" class="mb-20">
+            <div id="weather-widget" class="max-w-lg mx-auto glass-effect rounded-2xl p-6 shadow-lg flex items-center">
+                <div class="text-center text-slate-400 w-full">Carregando previsão do tempo...</div>
+            </div>
+        </section>
+
+        <!-- Como Funciona -->
+        <section id="como-funciona" class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-white mb-4">Como Funciona</h2>
+                <p class="text-xl text-slate-400 max-w-3xl mx-auto">Conectamos viajantes a experiências únicas em 3 passos simples.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto text-center">
+                <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700">
+                    <i class="fas fa-search text-4xl text-amber-400 mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">1. Busque</h3>
+                    <p class="text-slate-400">Use nossos filtros para encontrar exatamente o que você precisa para sua viagem.</p>
+                </div>
+                <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700">
+                    <i class="fas fa-handshake text-4xl text-amber-400 mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">2. Conecte-se</h3>
+                    <p class="text-slate-400">Entre em contato direto com os melhores parceiros e agências do mercado.</p>
+                </div>
+                <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700">
+                    <i class="fas fa-plane-departure text-4xl text-amber-400 mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">3. Viaje</h3>
+                    <p class="text-slate-400">Negocie e planeje sua viagem diretamente com o fornecedor, sem intermediários.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Carrossel de Agências Premium -->
+        <section id="agencias" class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-white mb-4">Nossas Agências Premium</h2>
+                <p class="text-xl text-slate-400 max-w-3xl mx-auto">Conheça alguns dos nossos parceiros de elite que confiam em nossa plataforma.</p>
+            </div>
+            <div id="agencies-carousel-wrapper" class="relative max-w-6xl mx-auto">
+                <div id="carousel-container" class="overflow-hidden">
+                    <div id="carousel-track" class="flex transition-transform duration-500 ease-in-out">
+                        <!-- Slides serão inseridos e randomizados pelo JS -->
+                    </div>
+                </div>
+                <button id="prev-btn" class="absolute top-1/2 -left-4 transform -translate-y-1/2 bg-slate-700/50 hover:bg-amber-500 text-white hover:text-slate-900 rounded-full w-12 h-12 flex items-center justify-center transition-all z-10 disabled:opacity-50 disabled:cursor-not-allowed">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button id="next-btn" class="absolute top-1/2 -right-4 transform -translate-y-1/2 bg-slate-700/50 hover:bg-amber-500 text-white hover:text-slate-900 rounded-full w-12 h-12 flex items-center justify-center transition-all z-10 disabled:opacity-50 disabled:cursor-not-allowed">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Carrossel de Parceiros Premium -->
+        <section id="parceiros-premium" class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-white mb-4">Explore Nossos Parceiros Premium</h2>
+                <p class="text-xl text-slate-400 max-w-3xl mx-auto">Experiências selecionadas para elevar a viagem dos seus clientes.</p>
+            </div>
+            <div class="relative max-w-full mx-auto">
+                <div id="partners-carousel-container" class="overflow-hidden relative">
+                    <div id="partners-carousel-track" class="flex">
+                        <!-- Slides serão inseridos pelo JS -->
+                    </div>
+                </div>
+                <button id="partners-prev-btn" class="absolute top-1/2 -left-4 transform -translate-y-1/2 bg-slate-700/50 hover:bg-amber-500 text-white hover:text-slate-900 rounded-full w-12 h-12 flex items-center justify-center transition-all z-10">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button id="partners-next-btn" class="absolute top-1/2 -right-4 transform -translate-y-1/2 bg-slate-700/50 hover:bg-amber-500 text-white hover:text-slate-900 rounded-full w-12 h-12 flex items-center justify-center transition-all z-10">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Mais Parceiros -->
+        <section id="mais-agencias" class="mb-20">
+             <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-white mb-4">Mais Parceiros para seu Passeio</h2>
+                <p class="text-xl text-slate-400 max-w-3xl mx-auto">Uma seleção aleatória de nossos parceiros Basic e Plus para você descobrir.</p>
+            </div>
+            <div id="advertiser-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Cards de anunciantes serão inseridos aqui pelo JS -->
+            </div>
+            <div class="mt-8 text-center text-sm text-slate-500 italic">
+                <p><strong>Aviso Importante:</strong> A plataforma Sua Viagem Aqui atua exclusivamente como uma vitrine para conectar viajantes a fornecedores de serviços. Toda a negociação, contratação, pagamento e execução dos pacotes e serviços são realizados diretamente com o parceiro anunciante, que é o único responsável pela transação.</p>
+            </div>
+        </section>
+
+        <!-- Planos de Assinatura para Parceiros -->
+        <section id="planos" class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Planos de Assinatura para Parceiros</h2>
+                <p class="text-xl text-slate-400 max-w-3xl mx-auto">Escolha o plano ideal para divulgar seu negócio e alcançar mais viajantes.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+                 <!-- Plano Free -->
+                <div class="bg-slate-800 rounded-2xl p-8 border-2 border-slate-700 flex flex-col">
+                    <h3 class="text-2xl font-bold text-cyan-400">Free Trial</h3>
+                    <p class="text-slate-400 mt-2 flex-grow">Teste a plataforma e comece a receber contatos.</p>
+                    <div class="text-4xl font-bold text-white my-6">Grátis<span class="text-lg font-normal text-slate-400">/30 dias</span></div>
+                    <ul class="space-y-3 text-slate-300">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Perfil na plataforma</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Até 1 foto na galeria</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Visibilidade nas buscas</li>
+                    </ul>
+                    <a href="cadastro_anunciantes.html?plan=free" class="mt-8 w-full text-center bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 rounded-lg transition">Comece Agora</a>
+                </div>
+                <!-- Plano Basic -->
+                <div class="bg-slate-800 rounded-2xl p-8 border-2 border-slate-700 flex flex-col">
+                    <h3 class="text-2xl font-bold text-amber-300">Basic</h3>
+                    <p class="text-slate-400 mt-2 flex-grow">Ideal para guias de turismo e pequenos negócios.</p>
+                    <div class="text-4xl font-bold text-white my-6">R$ 99<span class="text-lg font-normal text-slate-400">/mês</span></div>
+                    <ul class="space-y-3 text-slate-300">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Perfil Básico na plataforma</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Até 5 fotos na galeria</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Visibilidade em buscas locais</li>
+                    </ul>
+                    <a href="cadastro_anunciantes.html?plan=basic" class="subscribe-btn mt-8 w-full text-center bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 rounded-lg transition">Assine Agora</a>
+                </div>
+                <!-- Plano Plus -->
+                <div class="bg-slate-800 rounded-2xl p-8 border-2 border-amber-400 relative flex flex-col">
+                    <div class="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-amber-400 text-slate-900 px-4 py-1 rounded-full text-sm font-bold">OFERTA DE LANÇAMENTO</div>
+                    <h3 class="text-2xl font-bold text-amber-400">Plus</h3>
+                    <p class="text-slate-400 mt-2 flex-grow">Perfeito para pousadas, restaurantes e agências em crescimento.</p>
+                    <div class="my-6">
+                        <span class="text-2xl font-bold text-slate-500 line-through">R$ 199</span>
+                        <span class="text-4xl font-bold text-white">R$ 99<span class="text-lg font-normal text-slate-400">/mês</span></span>
+                        <p class="text-amber-400 font-semibold">para os 100 primeiros parceiros!</p>
+                    </div>
+                    <ul class="space-y-3 text-slate-300">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Tudo do plano Basic, e mais:</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Perfil Destacado</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Até 20 fotos e 1 vídeo</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Link para site e redes sociais</li>
+                    </ul>
+                     <a href="cadastro_anunciantes.html?plan=plus" class="subscribe-btn mt-8 w-full text-center bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-3 rounded-lg transition">Aproveite a Oferta</a>
+                </div>
+                <!-- Plano Advance -->
+                <div class="bg-slate-800 rounded-2xl p-8 border-2 border-slate-700 flex flex-col">
+                    <h3 class="text-2xl font-bold text-amber-300">Advance</h3>
+                    <p class="text-slate-400 mt-2 flex-grow">Para hotéis, resorts e grandes operadores que buscam máxima visibilidade.</p>
+                    <div class="text-4xl font-bold text-white my-6">R$ 399<span class="text-lg font-normal text-slate-400">/mês</span></div>
+                    <ul class="space-y-3 text-slate-300">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Tudo do plano Plus, e mais:</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Destaque na página principal</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Galeria ilimitada</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Relatórios de desempenho</li>
+                    </ul>
+                    <a href="cadastro_anunciantes.html?plan=advance" class="subscribe-btn mt-8 w-full text-center bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 rounded-lg transition">Assine Agora</a>
+                </div>
+            </div>
+            <!-- Container para o botão de pagamento do Mercado Pago -->
+            <div id="wallet_container" class="mt-8"></div>
+        </section>
+        
+        <section id="depoimentos" class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">O Que Dizem Sobre Nós</h2>
+                <p class="text-xl text-slate-400 max-w-3xl mx-auto">Experiências reais de parceiros e viajantes que confiam na nossa plataforma.</p>
+            </div>
+            <div id="testimonials-carousel-wrapper" class="relative max-w-4xl mx-auto">
+                <div id="testimonials-container" class="overflow-hidden">
+                    <div id="testimonials-track" class="flex transition-transform duration-500 ease-in-out">
+                        <!-- Depoimentos serão inseridos aqui pelo JS -->
+                    </div>
+                </div>
+                <button id="testimonials-prev-btn" class="absolute top-1/2 -left-4 transform -translate-y-1/2 bg-slate-700/50 hover:bg-amber-500 text-white hover:text-slate-900 rounded-full w-12 h-12 flex items-center justify-center transition-all z-10 disabled:opacity-50 disabled:cursor-not-allowed">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button id="testimonials-next-btn" class="absolute top-1/2 -right-4 transform -translate-y-1/2 bg-slate-700/50 hover:bg-amber-500 text-white hover:text-slate-900 rounded-full w-12 h-12 flex items-center justify-center transition-all z-10 disabled:opacity-50 disabled:cursor-not-allowed">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+        <section id="ferramentas" class="mb-20">
+            <div class="text-center mb-12">
+                <div class="inline-block bg-slate-800 border border-slate-700 rounded-full px-6 py-2 mb-4">
+                    <span class="text-amber-400 font-semibold text-sm">✨ FERRAMENTA EXCLUSIVA</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                    Construtor de Roteiros para Clientes
+                </h2>
+                <p class="text-xl text-slate-400 max-w-3xl mx-auto">
+                    Crie e personalize itinerários completos em minutos com nossa IA, e envie propostas profissionais para seus clientes.
+                </p>
+            </div>
+            <div class="max-w-4xl mx-auto bg-slate-800/50 rounded-3xl shadow-2xl p-8 md:p-12 border border-slate-700">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-6">Descreva o perfil do cliente e da viagem</h3>
+                        <div class="space-y-4 mb-6">
+                            <textarea id="ai-prompt" rows="6"
+                                       class="w-full bg-slate-900 border-2 border-slate-600 rounded-xl p-4 text-white focus:border-amber-500 focus:ring-amber-500 resize-none transition-all"
+                                      placeholder="Ex: Casal em lua de mel, 10 dias na Itália. Buscam romance, gastronomia e passeios privativos. Orçamento elevado."></textarea>
+                        </div>
+                        <button id="generate-ai-btn" class="btn-modern w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-900 font-bold py-4 rounded-xl text-lg shadow-lg transition-all">
+                            <span id="ai-btn-text">
+                                <i class="fas fa-magic mr-2"></i>Criar Roteiro
+                            </span>
+                            <span id="ai-btn-loading" class="hidden">
+                                <div class="modern-spinner mr-2" style="border-top-color: #111827;"></div>Criando proposta...
+                            </span>
+                        </button>
+                    </div>
+                    <div class="text-center">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1611162617474-5b21e-879e-113?q=80&w=400&auto=format&fit=crop"
+                                  class="w-full max-w-sm mx-auto rounded-2xl shadow-xl float-animation" alt="Representação visual de IA">
+                            <div class="absolute -top-4 -right-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-3 py-1 rounded-full text-sm font-semibold animate-pulse">
+                                IA Ativa
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="planos-viajante" class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Planos para Viajantes</h2>
+                <p class="text-xl text-slate-400 max-w-3xl mx-auto">Escolha o plano ideal para a sua jornada e comece a explorar.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Plano Viajante Free -->
+                <div class="bg-slate-800 rounded-2xl p-8 border-2 border-slate-700 flex flex-col">
+                    <h3 class="text-2xl font-bold text-cyan-400">Viajante Free</h3>
+                    <p class="text-slate-400 mt-2 flex-grow">O essencial para organizar suas viagens, sem custo.</p>
+                    <div class="text-4xl font-bold text-white my-6">Grátis</div>
+                    <ul class="space-y-3 text-slate-300">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Uso por tempo ilimitado</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Favorite seus passeios</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Crie sua lista de desejos</li>
+                        <li class="flex items-center text-slate-500"><i class="fas fa-times-circle text-red-500 mr-3"></i>Construtor de Roteiros com IA</li>
+                    </ul>
+                    <a href="cadastro_viajante.html" class="mt-8 w-full text-center bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 rounded-lg transition">Cadastre-se grátis</a>
+                </div>
+                <!-- Plano Viajante Plus -->
+                <div class="bg-slate-800 rounded-2xl p-8 border-2 border-amber-400 relative flex flex-col">
+                     <div class="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-amber-400 text-slate-900 px-4 py-1 rounded-full text-sm font-bold">RECOMENDADO</div>
+                    <h3 class="text-2xl font-bold text-amber-400">Viajante Plus</h3>
+                    <p class="text-slate-400 mt-2 flex-grow">Desbloqueie o poder da IA para viagens perfeitas.</p>
+                    <div class="text-4xl font-bold text-white my-6">R$ 19<span class="text-lg font-normal text-slate-400">,90/mês</span></div>
+                    <ul class="space-y-3 text-slate-300">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Todos os benefícios do Free</li>
+                         <li class="flex items-center font-bold text-amber-300"><i class="fas fa-star text-amber-400 mr-3"></i>Acesso ao Construtor de Roteiros com IA</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Favorite seus passeios</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Crie sua lista de desejos</li>
+                    </ul>
+                    <a href="cadastro_viajante_plus.html" class="mt-8 w-full text-center bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-3 rounded-lg transition">Seja Plus</a>
+                </div>
+            </div>
+        </section>
+        <section id="comunidade" class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Junte-se à Nossa Comunidade</h2>
+                <p class="text-xl text-slate-400 max-w-3xl mx-auto">Conecte-se, receba dicas e fique por dentro das novidades em nossos grupos exclusivos.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700 text-center">
+                    <i class="fab fa-telegram text-5xl text-blue-400 mb-4"></i>
+                    <h3 class="text-xl font-bold text-white">SVA | Alertas de Viagem</h3>
+                    <p class="text-slate-400 mt-2 mb-4">Receba as melhores ofertas e alertas de pacotes diretamente no seu Telegram.</p>
+                    <a href="https://t.me/SuaviagemaquiBot" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-colors">Entrar no Grupo</a>
+                </div>
+                <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700 text-center">
+                    <i class="fab fa-telegram text-5xl text-blue-400 mb-4"></i>
+                    <h3 class="text-xl font-bold text-white">Parceiros de Sucesso SVA</h3>
+                    <p class="text-slate-400 mt-2 mb-4">Grupo exclusivo para anunciantes trocarem experiências e receberem dicas.</p>
+                    <a href="https://t.me/+gtw1opf1MsE4YjRh" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-colors">Entrar no Grupo</a>
+                </div>
+                <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700 text-center">
+                    <i class="fab fa-telegram text-5xl text-blue-400 mb-4"></i>
+                    <h3 class="text-xl font-bold text-white">Exploradores SVA</h3>
+                    <p class="text-slate-400 mt-2 mb-4">Para viajantes que amam compartilhar dicas, fotos e histórias de suas aventuras.</p>
+                    <a href="https://t.me/+CtoX6DT5HdM4NmRh" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-colors">Entrar no Grupo</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-slate-800/50 border-t border-slate-700">
+        <div class="container mx-auto px-4 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-4">Sua Viagem Aqui</h3>
+                    <p class="text-slate-400 text-sm">A plataforma definitiva para agências de viagens e parceiros premium.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-4">Links Rápidos</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-slate-400 hover:text-amber-400 transition-colors">Sobre Nós</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-amber-400 transition-colors">Condições de Uso</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-amber-400 transition-colors">Política de Privacidade</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-amber-400 transition-colors">Código de Conduta</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-4">Siga-nos</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-slate-400 hover:text-amber-400 transition-colors"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-amber-400 transition-colors"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-amber-400 transition-colors"><i class="fab fa-tiktok fa-lg"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-amber-400 transition-colors"><i class="fab fa-twitter fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-slate-700 pt-4 text-center text-sm text-slate-500">
+                <p>&copy; 2024 Sua Viagem Aqui. Todos os direitos reservados.</p>
+                <p class="mt-2">A plataforma atua como intermediadora. A negociação é direta com o fornecedor.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Modal de Alerta -->
+    <div id="alert-modal" class="hidden fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4">
+        <div class="bg-slate-800 rounded-2xl shadow-xl p-8 max-w-sm w-full text-center border border-slate-600">
+            <p id="alert-message" class="text-white text-lg mb-6"></p>
+            <button id="alert-close-btn" class="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-3 px-8 rounded-lg transition">OK</button>
+        </div>
+    </div>
+
+    <!-- Scripts do Firebase -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getFirestore, collection, getDocs, query, where, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getFunctions, httpsCallable } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-functions.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAzrZ-gVFJXCevpEkKHht3dn9RLCRdo2h0",
+            authDomain: "gemini-cli-98f4a.firebaseapp.com",
+            projectId: "gemini-cli-98f4a",
+            storageBucket: "gemini-cli-98f4a.firebasestorage.app",
+            messagingSenderId: "1065949512661",
+            appId: "1:1065949512661:web:57d184d86a82438511f35c",
+            measurementId: "G-CHE4S36RY3"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const functions = getFunctions(app, 'southamerica-east1');
+        const auth = getAuth(app);
+
+        // Lógica do Modal de Alerta
+        const alertModal = document.getElementById('alert-modal');
+        const alertMessage = document.getElementById('alert-message');
+        const alertCloseBtn = document.getElementById('alert-close-btn');
+
+        function showAlert(message) {
+            alertMessage.textContent = message;
+            alertModal.classList.remove('hidden');
+        }
+
+        alertCloseBtn.addEventListener('click', () => {
+            alertModal.classList.add('hidden');
+        });
+
+
+        const ADMIN_EMAIL = "suaviagemaqui.adm@gmail.com";
+        const userActions = document.getElementById('user-actions');
+
+        onAuthStateChanged(auth, user => {
+            if (user) {
+                // Utilizador está logado
+                userActions.innerHTML = ''; // Limpa os botões de login/anuncie
+
+                // Botão de Perfil
+                const profileButton = document.createElement('a');
+                
+                // Decide o link do perfil com base no tipo de utilizador
+                 const partnerRef = doc(db, "partners", user.uid);
+                 getDoc(partnerRef).then(docSnap => {
+                    if (docSnap.exists()) {
+                        profileButton.href = 'painel_anunciante.html';
+                    } else {
+                        profileButton.href = 'perfil.html';
+                    }
+                 });
+
+                profileButton.className = 'flex items-center bg-slate-700 text-white px-4 py-2 rounded-full hover:bg-slate-600 transition-all';
+                profileButton.innerHTML = `<i class="fas fa-user-circle text-lg mr-2"></i><span class="hidden sm:inline font-bold">Meu Painel</span>`;
+                userActions.appendChild(profileButton);
+
+                // Botão de Admin (se aplicável)
+                if (user.email === ADMIN_EMAIL) {
+                    const adminButton = document.createElement('a');
+                    adminButton.href = 'admin.html';
+                    adminButton.className = 'flex items-center bg-purple-600 text-white px-4 py-2 rounded-full hover:bg-purple-700 transition-all';
+                    adminButton.innerHTML = `<i class="fas fa-user-shield mr-2"></i><span class="hidden sm:inline font-bold">Admin</span>`;
+                    userActions.insertBefore(adminButton, profileButton);
+                }
+                 // Botão Sair
+                const logoutButton = document.createElement('button');
+                logoutButton.id = 'logout-btn';
+                logoutButton.className = 'flex items-center bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700 transition-all';
+                logoutButton.innerHTML = `<i class="fas fa-sign-out-alt text-lg mr-2"></i><span class="hidden sm:inline font-bold">Sair</span>`;
+                logoutButton.onclick = () => {
+                    signOut(auth).then(() => {
+                        window.location.reload();
+                    }).catch(console.error);
+                };
+                userActions.appendChild(logoutButton);
+
+
+            } else {
+                // Utilizador não está logado, mostra os botões padrão
+                 userActions.innerHTML = `
+                    <a href="cadastro_anunciantes.html" id="anuncie-btn" class="hidden md:flex items-center bg-transparent border border-amber-400 text-amber-400 px-4 py-2 rounded-full hover:bg-amber-400 hover:text-slate-900 transition-all">
+                        <i class="fas fa-bullhorn mr-2"></i>
+                        <span class="font-bold">Anuncie Seu Negócio</span>
+                    </a>
+                    <a href="pagina_login.html" id="login-btn" class="flex items-center bg-amber-500 text-slate-900 px-4 py-2 rounded-full hover:bg-amber-400 transition-all shadow-lg hover:shadow-amber-500/20">
+                        <i class="fas fa-sign-in-alt text-lg mr-2"></i>
+                        <span class="hidden sm:inline font-bold">Login</span>
+                    </a>
+                 `;
+            }
+        });
+
+        const mp = new MercadoPago('APP_USR-02613eca-74a8-41c0-8800-044a325e5d15', {
+            locale: 'pt-BR'
+        });
+
+        const searchResultsSection = document.getElementById('search-results-section');
+        const searchResultsGrid = document.getElementById('search-results-grid');
+        const noResultsMessage = document.getElementById('no-results-message');
+        const mainContent = document.getElementById('main-content');
+        const heroSection = document.getElementById('hero-section');
+        const clearSearchBtn = document.getElementById('clear-search-btn');
+
+        const searchDestinoBtn = document.getElementById('search-destino-btn');
+        const searchCategoriaBtn = document.getElementById('search-categoria-btn');
+
+        // Função de busca genérica
+        async function performSearch({ destino = '', categoria = '' }, triggerButton) {
+            const searchText = triggerButton.querySelector('.search-text');
+            const searchLoading = triggerButton.querySelector('.search-loading');
+            
+            searchText.classList.add('hidden');
+            searchLoading.classList.remove('hidden');
+            searchLoading.classList.add('flex');
+            triggerButton.disabled = true;
+
+            try {
+                const partnersRef = collection(db, "partners");
+                const q = query(partnersRef, where("status", "==", "aprovado"));
+                
+                const querySnapshot = await getDocs(q);
+                const allPartners = [];
+                querySnapshot.forEach((doc) => {
+                    allPartners.push({ id: doc.id, ...doc.data() });
+                });
+
+                const lowerDestino = destino.toLowerCase().trim();
+
+                const results = allPartners.filter(partner => {
+                    const matchCategoria = (categoria === 'todos' || categoria === '') || (partner.category === categoria);
+                    
+                    const searchTerms = [
+                        partner.businessName?.toLowerCase() || '',
+                        partner.city?.toLowerCase() || '',
+                        partner.state?.toLowerCase() || '',
+                        ...(partner.tags || [])
+                    ].join(' ');
+
+                    const matchDestino = (lowerDestino === '') || searchTerms.includes(lowerDestino);
+                    
+                    return matchCategoria && matchDestino;
+                });
+
+                searchResultsGrid.innerHTML = '';
+
+                if (results.length > 0) {
+                    noResultsMessage.classList.add('hidden');
+                    results.forEach(partner => {
+                        const cardWrapper = document.createElement('a');
+                        cardWrapper.href = `public_partner_details.html?id=${partner.id}`;
+                        cardWrapper.className = 'bg-slate-800 rounded-2xl overflow-hidden flex flex-col card-hover';
+                        cardWrapper.innerHTML = `
+                            <img src="${partner.image || 'https://placehold.co/400x300/1e293b/fcd34d?text=SVA'}" alt="${partner.businessName}" class="w-full h-48 object-cover">
+                            <div class="p-4 flex flex-col flex-grow">
+                                <h3 class="text-lg font-bold text-white">${partner.businessName}</h3>
+                                <p class="text-sm text-amber-400 capitalize">${partner.category.replace(/_/g, ' ')}</p>
+                                <p class="text-xs text-slate-400 mt-2"><i class="fas fa-map-marker-alt mr-2"></i>${partner.city}, ${partner.state}</p>
+                            </div>
+                        `;
+                        searchResultsGrid.appendChild(cardWrapper);
+                    });
+                } else {
+                    noResultsMessage.classList.remove('hidden');
+                }
+
+                mainContent.classList.add('hidden');
+                heroSection.classList.add('hidden');
+                searchResultsSection.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            } catch (error) {
+                console.error("Erro ao buscar dados do Firebase: ", error);
+                showAlert("Não foi possível conectar à base de dados. Verifique o console para mais detalhes.");
+            } finally {
+                searchText.classList.remove('hidden');
+                searchLoading.classList.add('hidden');
+                searchLoading.classList.remove('flex');
+                triggerButton.disabled = false;
+            }
+        }
+
+        searchDestinoBtn.addEventListener('click', () => {
+            const destino = document.getElementById('destino-input').value;
+            performSearch({ destino }, searchDestinoBtn);
+        });
+
+        searchCategoriaBtn.addEventListener('click', () => {
+            const categoria = document.getElementById('categoria-select').value;
+            const local = document.getElementById('local-input').value;
+            performSearch({ destino: local, categoria }, searchCategoriaBtn);
+        });
+
+        clearSearchBtn.addEventListener('click', () => {
+            searchResultsSection.classList.add('hidden');
+            mainContent.classList.remove('hidden');
+            heroSection.classList.remove('hidden');
+            document.getElementById('destino-input').value = '';
+            document.getElementById('local-input').value = '';
+            document.getElementById('categoria-select').value = 'todos';
+        });
+
+        const weatherWidget = document.getElementById('weather-widget');
+
+        async function fetchWeather() {
+            const getWeather = httpsCallable(functions, 'getWeatherForecast');
+             try {
+                const result = await getWeather();
+                const data = result.data;
+
+                if (!data || !data.city) {
+                     weatherWidget.innerHTML = `<div class="text-center text-slate-400 w-full">Dados de previsão indisponíveis.</div>`;
+                     return;
+                }
+
+                const dailyForecasts = data.list.filter(item => item.dt_txt.includes("12:00:00"));
+
+                if (!dailyForecasts.length) {
+                     weatherWidget.innerHTML = `<div class="text-center text-slate-400 w-full">Dados de previsão indisponíveis.</div>`;
+                     return;
+                }
+
+                const today = dailyForecasts[0];
+                const todayIcon = getWeatherIcon(today.weather[0].id);
+                const todayTemp = Math.round(today.main.temp);
+
+                let forecastHTML = `
+                    <div class="flex items-center space-x-4 flex-1">
+                        <div>
+                            <p class="text-lg font-semibold text-white">${data.city.name}</p>
+                            <p class="text-sm text-slate-300">Hoje</p>
+                        </div>
+                        <div class="text-right">
+                            <i class="fas ${todayIcon} text-4xl text-amber-400"></i>
+                            <p class="text-3xl font-bold text-white">${todayTemp}°C</p>
+                        </div>
+                    </div>
+                    <div class="border-l border-slate-600 pl-4 flex space-x-4">
+                `;
+
+                for (let i = 1; i < 3 && i < dailyForecasts.length; i++) {
+                    const day = dailyForecasts[i];
+                    const dayName = new Date(day.dt * 1000).toLocaleDateString('pt-BR', { weekday: 'short' });
+                    const dayIcon = getWeatherIcon(day.weather[0].id);
+                    const dayTemp = Math.round(day.main.temp);
+
+                    forecastHTML += `
+                        <div class="text-center">
+                            <p class="font-semibold text-white">${dayName}</p>
+                            <i class="fas ${dayIcon} text-2xl text-slate-300 my-1"></i>
+                            <p class="font-bold text-white">${dayTemp}°</p>
+                        </div>
+                    `;
+                }
+
+                forecastHTML += `</div>`;
+                weatherWidget.innerHTML = forecastHTML;
+
+            } catch (error) {
+                console.error("Erro ao buscar previsão do tempo:", error);
+                weatherWidget.innerHTML = `<div class="text-center text-slate-400 w-full">Não foi possível carregar a previsão do tempo.</div>`;
+            }
+        }
+        
+        function getWeatherIcon(weatherId) {
+            if (weatherId >= 200 && weatherId < 300) return 'fa-bolt';
+            if (weatherId >= 300 && weatherId < 400) return 'fa-cloud-rain';
+            if (weatherId >= 500 && weatherId < 600) return 'fa-cloud-showers-heavy';
+            if (weatherId >= 600 && weatherId < 700) return 'fa-snowflake';
+            if (weatherId >= 700 && weatherId < 800) return 'fa-smog';
+            if (weatherId === 800) return 'fa-sun';
+            if (weatherId === 801) return 'fa-cloud-sun';
+            if (weatherId > 801) return 'fa-cloud';
+            return 'fa-question-circle';
+        }
+
+        fetchWeather();
+
+        const agenciesData = [
+            { text: 'A', name: 'Agência Alpha', desc: 'Especialistas em viagens de luxo e experiências exclusivas.' },
+            { text: 'B', name: 'Beta Travel', desc: 'Foco em destinos exóticos e aventuras inesquecíveis.' },
+            { text: 'G', name: 'Gamma Corp', desc: 'Soluções completas para viagens corporativas e de incentivo.' },
+            { text: 'D', name: 'Delta Viagens', desc: 'Curadoria de roteiros culturais e históricos pelo mundo.' },
+            { text: 'E', name: 'Epsilon Tours', desc: 'Viagens de bem-estar e retiros espirituais.' }
+        ];
+        
+        const advertiserGrid = document.getElementById('advertiser-grid');
+        
+        // Função para renderizar os cards de parceiros
+        function renderPartnerCards(partners) {
+            advertiserGrid.innerHTML = ''; 
+            partners.forEach((ad) => {
+                const cardWrapper = document.createElement('a');
+                cardWrapper.href = `public_partner_details.html?id=${ad.id}`;
+                cardWrapper.className = 'bg-slate-800 rounded-2xl overflow-hidden flex flex-col card-hover';
+
+                const imageContainer = document.createElement('div');
+                imageContainer.className = 'relative w-full h-48';
+
+                const images = ad.galleryImages && ad.galleryImages.length > 0 ? ad.galleryImages : [ad.image];
+                
+                images.slice(0, 5).forEach((imgSrc, imgIndex) => {
+                     const img = document.createElement('img');
+                     img.src = imgSrc || 'https://placehold.co/400x300/1e293b/fcd34d?text=SVA';
+                     img.alt = ad.businessName;
+                     img.className = `absolute top-0 left-0 w-full h-full object-cover advertiser-card-image transition-opacity duration-500 ${imgIndex === 0 ? 'opacity-100' : 'opacity-0'}`;
+                     imageContainer.appendChild(img);
+                });
+
+                cardWrapper.dataset.currentImageIndex = '0';
+                cardWrapper.dataset.totalImages = images.slice(0, 5).length;
+
+                const textContent = document.createElement('div');
+                textContent.className = 'p-4 flex flex-col flex-grow';
+                textContent.innerHTML = `
+                    <h3 class="text-lg font-bold text-white">${ad.businessName}</h3>
+                    <p class="text-sm text-amber-400 capitalize">${(ad.category || '').replace(/_/g, ' ')}</p>
+                    <p class="text-xs text-slate-400 mt-2"><i class="fas fa-map-marker-alt mr-2"></i>${ad.city}, ${ad.state}</p>
+                `;
+                
+                cardWrapper.appendChild(imageContainer);
+                cardWrapper.appendChild(textContent);
+                advertiserGrid.appendChild(cardWrapper);
+            });
+
+             setInterval(() => {
+                const cardsToAnimate = advertiserGrid.querySelectorAll('.card-hover');
+                cardsToAnimate.forEach(card => {
+                    const imageContainer = card.querySelector('.relative.w-full.h-48');
+                    if (imageContainer) {
+                        const images = imageContainer.querySelectorAll('img');
+                        const totalImages = parseInt(card.dataset.totalImages, 10);
+                        
+                        if (totalImages > 1) {
+                            let currentIndex = parseInt(card.dataset.currentImageIndex, 10);
+                            
+                            images[currentIndex].classList.remove('opacity-100');
+                            images[currentIndex].classList.add('opacity-0');
+                            
+                            let nextIndex = (currentIndex + 1) % totalImages;
+                            
+                            images[nextIndex].classList.remove('opacity-0');
+                            images[nextIndex].classList.add('opacity-100');
+                            
+                            card.dataset.currentImageIndex = nextIndex.toString();
+                        }
+                    }
+                });
+            }, 4000);
+        }
+
+        async function loadRandomPartners() {
+            if (!advertiserGrid) return;
+            try {
+                const partnersRef = collection(db, "partners");
+                const q = query(partnersRef, where("status", "==", "aprovado"));
+                const querySnapshot = await getDocs(q);
+                
+                let partners = [];
+                querySnapshot.forEach((doc) => {
+                    partners.push({ id: doc.id, ...doc.data() });
+                });
+
+                if (partners.length > 0) {
+                    const shuffled = partners.sort(() => 0.5 - Math.random());
+                    const selected = shuffled.slice(0, 8);
+                    renderPartnerCards(selected);
+                } else {
+                    // Se não houver parceiros no Firebase, exibe dados de exemplo
+                    const mockPartners = [
+                        { id: 'mock1', businessName: 'Passeio de Barco Ilha Bela', category: 'passeios_barco', city: 'Ilhabela', state: 'SP', image: 'https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=500' },
+                        { id: 'mock2', businessName: 'Trilha da Cachoeira', category: 'ecoturismo', city: 'Ubatuba', state: 'SP', image: 'https://images.unsplash.com/photo-1532274402911-5a369e4c4bb5?w=500' },
+                        { id: 'mock3', businessName: 'Pousada Vista Mar', category: 'hospedagem', city: 'Paraty', state: 'RJ', image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=500' },
+                        { id: 'mock4', businessName: 'Restaurante Caiçara', category: 'restaurantes', city: 'Caraguatatuba', state: 'SP', image: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?w=500' },
+                        { id: 'mock5', businessName: 'Aluguel de Bikes Litoral', category: 'aluguel', city: 'São Sebastião', state: 'SP', image: 'https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?w=500' },
+                        { id: 'mock6', businessName: 'Guia Histórico Paraty', category: 'guias', city: 'Paraty', state: 'RJ', image: 'https://images.unsplash.com/photo-1533106418989-88406e76827a?w=500' },
+                        { id: 'mock7', businessName: 'Bar da Praia', category: 'bares', city: 'Ubatuba', state: 'SP', image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=500' },
+                        { id: 'mock8', businessName: 'Experiência de Mergulho', category: 'mergulho', city: 'Ilhabela', state: 'SP', image: 'https://images.unsplash.com/photo-1577451996136-eb2fde781666?w=500' }
+                    ];
+                    renderPartnerCards(mockPartners);
+                }
+            } catch (error) {
+                console.error("Erro ao carregar parceiros:", error);
+                 // Em caso de erro, também exibe os dados de exemplo
+                const mockPartners = [
+                    { id: 'mock1', businessName: 'Passeio de Barco Ilha Bela', category: 'passeios_barco', city: 'Ilhabela', state: 'SP', image: 'https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=500' },
+                    { id: 'mock2', businessName: 'Trilha da Cachoeira', category: 'ecoturismo', city: 'Ubatuba', state: 'SP', image: 'https://images.unsplash.com/photo-1532274402911-5a369e4c4bb5?w=500' },
+                    { id: 'mock3', businessName: 'Pousada Vista Mar', category: 'hospedagem', city: 'Paraty', state: 'RJ', image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=500' },
+                    { id: 'mock4', businessName: 'Restaurante Caiçara', category: 'restaurantes', city: 'Caraguatatuba', state: 'SP', image: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?w=500' },
+                    { id: 'mock5', businessName: 'Aluguel de Bikes Litoral', category: 'aluguel', city: 'São Sebastião', state: 'SP', image: 'https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?w=500' },
+                    { id: 'mock6', businessName: 'Guia Histórico Paraty', category: 'guias', city: 'Paraty', state: 'RJ', image: 'https://images.unsplash.com/photo-1533106418989-88406e76827a?w=500' },
+                    { id: 'mock7', businessName: 'Bar da Praia', category: 'bares', city: 'Ubatuba', state: 'SP', image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=500' },
+                    { id: 'mock8', businessName: 'Experiência de Mergulho', category: 'mergulho', city: 'Ilhabela', state: 'SP', image: 'https://images.unsplash.com/photo-1577451996136-eb2fde781666?w=500' }
+                ];
+                renderPartnerCards(mockPartners);
+            }
+        }
+        loadRandomPartners();
+
+
+        const testimonialsData = [
+            {
+                img: 'https://placehold.co/50x50/fcd34d/1f2937?text=M',
+                alt: 'Maria S.',
+                name: 'Maria S.',
+                title: 'Pousada Aconchego',
+                quote: '"Desde que entramos na plataforma, nossa taxa de ocupação aumentou em 30%. O acesso direto às agências premium fez toda a diferença!"'
+            },
+            {
+                img: 'https://placehold.co/50x50/fcd34d/1f2937?text=A',
+                alt: 'Ana L.',
+                name: 'Ana L.',
+                title: 'Viajante Verificada',
+                quote: '"Encontrei um guia de turismo local incrível através da plataforma para o meu passeio na Amazônia. Foi uma experiência autêntica que eu não teria achado em nenhum outro lugar!"'
+            },
+            {
+                img: 'https://placehold.co/50x50/fcd34d/1f2937?text=J',
+                alt: 'João P.',
+                name: 'João P.',
+                title: 'Guia de Ecoturismo',
+                quote: '"A visibilidade que o plano Basic me deu foi incrível. Recebo contatos de agências que antes eu nem sonhava em alcançar. Recomendo!"'
+            },
+            {
+                img: 'https://placehold.co/50x50/fcd34d/1f2937?text=C',
+                alt: 'Carlos F.',
+                name: 'Carlos F.',
+                title: 'Viajante Verificado',
+                quote: '"Planejei toda a minha viagem de lua de mel usando os parceiros da plataforma. Desde a pousada romântica até os restaurantes, tudo foi perfeito. Facilitou muito a minha vida."'
+            }
+        ];
+        
+        
+        const carouselTrack = document.getElementById('carousel-track');
+        if (carouselTrack) {
+            agenciesData.sort(() => Math.random() - 0.5);
+            agenciesData.forEach(agency => {
+                const slide = document.createElement('div');
+                slide.className = 'carousel-slide min-w-full md:min-w-1/2 lg:min-w-1/3 p-4';
+                slide.innerHTML = `
+                    <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700 h-full text-center hover:border-amber-400 transition-colors">
+                        <img src="https://placehold.co/100x100/1f2937/fcd34d?text=${agency.text}" alt="Logo ${agency.name}" class="h-20 w-20 mx-auto mb-6 rounded-full object-cover border-2 border-slate-600">
+                        <h3 class="text-xl font-bold text-white">${agency.name}</h3>
+                        <p class="text-slate-400 mt-2">${agency.desc}</p>
+                    </div>
+                `;
+                carouselTrack.appendChild(slide);
+            });
+            const agenciesWrapper = document.getElementById('agencies-carousel-wrapper');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const slides = carouselTrack.querySelectorAll('.carousel-slide');
+            let currentIndex = 0;
+            let autoScrollInterval;
+            const getSlidesPerView = () => window.innerWidth >= 1024 ? 3 : (window.innerWidth >= 768 ? 2 : 1);
+            const getMaxIndex = () => slides.length - getSlidesPerView();
+            let maxIndex = getMaxIndex();
+            function updateCarousel(manual = false) {
+                if (manual) stopAutoScroll();
+                if (slides.length > 0) {
+                    const slideWidth = slides[0].getBoundingClientRect().width;
+                    carouselTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+                }
+                prevBtn.disabled = currentIndex === 0;
+                nextBtn.disabled = currentIndex >= maxIndex;
+                if (manual) startAutoScroll();
+            }
+            function startAutoScroll() {
+                stopAutoScroll();
+                autoScrollInterval = setInterval(() => {
+                    currentIndex = (currentIndex >= maxIndex) ? 0 : currentIndex + 1;
+                    updateCarousel();
+                }, 5000);
+            }
+            function stopAutoScroll() {
+                clearInterval(autoScrollInterval);
+            }
+            nextBtn.addEventListener('click', () => {
+                if (currentIndex < maxIndex) currentIndex++;
+                updateCarousel(true);
+            });
+            prevBtn.addEventListener('click', () => {
+                if (currentIndex > 0) currentIndex--;
+                updateCarousel(true);
+            });
+            agenciesWrapper.addEventListener('mouseenter', stopAutoScroll);
+            agenciesWrapper.addEventListener('mouseleave', startAutoScroll);
+            window.addEventListener('resize', () => {
+                maxIndex = getMaxIndex();
+                if (currentIndex > maxIndex) currentIndex = maxIndex;
+                updateCarousel();
+            });
+            updateCarousel();
+            startAutoScroll();
+        }
+
+        const partnersTrack = document.getElementById('partners-carousel-track');
+        if(partnersTrack) {
+            let allPartners = [...partnersData, ...partnersData];
+            allPartners.forEach(partner => {
+                const stars = Array(5).fill(0).map((_, i) => 
+                     `<i class="fas fa-star ${i < partner.rating ? 'text-amber-400' : 'text-slate-600'}"></i>`
+                ).join('');
+                const slide = document.createElement('div');
+                slide.className = 'flex-none w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-3';
+                slide.innerHTML = `
+                    <div class="bg-slate-800 rounded-2xl overflow-hidden h-full flex flex-col card-hover">
+                        <img src="${partner.img}" class="w-full h-48 object-cover">
+                        <div class="p-4 flex flex-col flex-grow">
+                            <h3 class="text-lg font-bold text-white">${partner.title}</h3>
+                            <p class="text-sm text-slate-400 mb-2">${partner.category}</p>
+                            <div class="flex items-center text-sm">${stars}</div>
+                        </div>
+                    </div>
+                `;
+                partnersTrack.appendChild(slide);
+            });
+            const partnersContainer = document.getElementById('partners-carousel-container');
+            const partnersPrevBtn = document.getElementById('partners-prev-btn');
+            const partnersNextBtn = document.getElementById('partners-next-btn');
+            let scrollInterval;
+            function startScrolling() {
+                stopScrolling();
+                scrollInterval = setInterval(() => {
+                    if (partnersContainer.scrollLeft >= partnersTrack.scrollWidth / 2) {
+                        partnersContainer.scrollLeft = 0;
+                    } else {
+                        partnersContainer.scrollBy({ left: 1, behavior: 'auto' });
+                    }
+                }, 30);
+            }
+            function stopScrolling() {
+                clearInterval(scrollInterval);
+            }
+            partnersNextBtn.addEventListener('click', () => { 
+                 const slideWidth = partnersTrack.querySelector('div').offsetWidth;
+                 partnersContainer.scrollBy({ left: slideWidth, behavior: 'smooth' });
+            });
+            partnersPrevBtn.addEventListener('click', () => { 
+                 const slideWidth = partnersTrack.querySelector('div').offsetWidth;
+                 partnersContainer.scrollBy({ left: -slideWidth, behavior: 'smooth' });
+            });
+            partnersContainer.addEventListener('mouseenter', stopScrolling);
+            partnersContainer.addEventListener('mouseleave', startAutoScroll);
+            startScrolling();
+        }
+
+        const testimonialsTrack = document.getElementById('testimonials-track');
+        if (testimonialsTrack) {
+            testimonialsData.forEach(testimonial => {
+                const slide = document.createElement('div');
+                slide.className = 'carousel-slide min-w-full md:min-w-1/2 p-4';
+                slide.innerHTML = `
+                    <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700 h-full flex flex-col">
+                        <p class="text-slate-300 flex-grow"><em>${testimonial.quote}</em></p>
+                        <div class="flex items-center mt-6">
+                            <img src="${testimonial.img}" alt="${testimonial.alt}" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <p class="font-bold text-white">${testimonial.name}</p>
+                                <p class="text-sm text-slate-400">${testimonial.title}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                testimonialsTrack.appendChild(slide);
+            });
+
+            const testimonialsWrapper = document.getElementById('testimonials-carousel-wrapper');
+            const prevBtn = document.getElementById('testimonials-prev-btn');
+            const nextBtn = document.getElementById('testimonials-next-btn');
+            const slides = testimonialsTrack.querySelectorAll('.carousel-slide');
+            let currentIndex = 0;
+            let autoScrollInterval;
+
+            const getSlidesPerView = () => window.innerWidth >= 768 ? 2 : 1;
+            const getMaxIndex = () => slides.length - getSlidesPerView();
+            let maxIndex = getMaxIndex();
+
+            function updateCarousel(manual = false) {
+                if (manual) stopAutoScroll();
+                if (slides.length > 0) {
+                    const slideWidth = slides[0].getBoundingClientRect().width;
+                    testimonialsTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+                }
+                prevBtn.disabled = currentIndex === 0;
+                nextBtn.disabled = currentIndex >= maxIndex;
+                if (manual) startAutoScroll();
+            }
+
+            function startAutoScroll() {
+                stopAutoScroll();
+                autoScrollInterval = setInterval(() => {
+                    currentIndex = (currentIndex >= maxIndex) ? 0 : currentIndex + 1;
+                    updateCarousel();
+                }, 6000);
+            }
+
+            function stopAutoScroll() {
+                clearInterval(autoScrollInterval);
+            }
+
+            nextBtn.addEventListener('click', () => {
+                if (currentIndex < maxIndex) currentIndex++;
+                updateCarousel(true);
+            });
+
+            prevBtn.addEventListener('click', () => {
+                if (currentIndex > 0) currentIndex--;
+                updateCarousel(true);
+            });
+
+            testimonialsWrapper.addEventListener('mouseenter', stopAutoScroll);
+            testimonialsWrapper.addEventListener('mouseleave', startAutoScroll);
+
+            window.addEventListener('resize', () => {
+                maxIndex = getMaxIndex();
+                if (currentIndex > maxIndex) currentIndex = maxIndex;
+                updateCarousel();
+            });
+
+            updateCarousel();
+            startAutoScroll();
+        }
+         const generateAiBtn = document.getElementById('generate-ai-btn');
+        const aiPrompt = document.getElementById('ai-prompt');
+        const aiBtnText = document.getElementById('ai-btn-text');
+        const aiBtnLoading = document.getElementById('ai-btn-loading');
+
+        generateAiBtn.addEventListener('click', async () => {
+            const user = auth.currentUser;
+            if (!user) {
+                showAlert("Por favor, faça login como viajante para usar esta funcionalidade.");
+                window.location.href = 'pagina_login.html?redirectTo=' + encodeURIComponent(window.location.href);
+                return;
+            }
+
+            const userDoc = await getDoc(doc(db, "users", user.uid));
+            if (!userDoc.exists() || userDoc.data().role !== 'traveler_plus' || userDoc.data().payment_status !== 'paid') {
+                showAlert("Esta é uma funcionalidade exclusiva para Viajantes Plus. Por favor, assine o plano para continuar.");
+                window.location.href = 'cadastro_viajante_plus.html';
+                return;
+            }
+
+            const prompt = aiPrompt.value;
+            if (!prompt.trim()) {
+                showAlert("Por favor, descreva a viagem desejada para gerar o roteiro.");
+                return;
+            }
+
+            aiBtnText.classList.add('hidden');
+            aiBtnLoading.classList.remove('hidden');
+            aiBtnLoading.classList.add('flex');
+            generateAiBtn.disabled = true;
+
+            try {
+                const generateRoteiro = httpsCallable(functions, 'generateRoteiro');
+                const result = await generateRoteiro({ prompt: prompt });
+                const { roteiroId } = result.data;
+                // ATENÇÃO: O ficheiro 'public_roteiro.html' deve estar dentro da pasta 'public' para funcionar.
+                window.open(`public_roteiro.html?id=${roteiroId}`, '_blank');
+            } catch (error) {
+                console.error("Erro ao gerar roteiro:", error);
+                showAlert("Ocorreu um erro ao gerar o roteiro. Tente novamente.");
+            } finally {
+                aiBtnText.classList.remove('hidden');
+                aiBtnLoading.classList.add('hidden');
+                aiBtnLoading.classList.remove('flex');
+                generateAiBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
+

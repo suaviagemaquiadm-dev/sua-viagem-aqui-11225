@@ -1,0 +1,48 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper Functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return request.auth.uid == userId;
+    }
+
+    // Rules for User Profiles
+    match /users/{userId} {
+      // Any authenticated user can create their own profile.
+      // Users can only read, update, or delete their own profile.
+      allow read, update, delete: if isSignedIn() && isOwner(userId);
+      allow create: if isSignedIn();
+      
+      // Rules for Wishlist Items subcollection
+      match /wishlist/{itemId} {
+        // A user can manage all items in their own wishlist.
+        allow read, write: if isSignedIn() && isOwner(userId);
+      }
+      
+      // Rules for Roteiros subcollection
+      match /roteiros/{roteiroId} {
+        allow read, write: if isSignedIn() && isOwner(userId);
+      }
+    }
+    
+    // Rules for Partners collection
+    match /partners/{partnerId} {
+      // Approved partners are public. Owners can read their own ads regardless of status.
+      allow get: if resource.data.status == 'aprovado' || (isSignedIn() && isOwner(resource.data.userId));
+      
+      // Anyone can list partners. The frontend will filter for approved ones.
+      allow list: if true;
+
+      // Only the owner can create or update their partner profile.
+      allow create, update: if isSignedIn() && isOwner(request.resource.data.userId);
+
+      // Only the owner can delete their partner profile.
+      allow delete: if isSignedIn() && isOwner(resource.data.userId);
+    }
+  }
+}

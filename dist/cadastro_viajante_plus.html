@@ -1,0 +1,103 @@
+
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seja um Viajante Plus - Sua Viagem Aqui</title>
+    <link rel="manifest" href="/manifest.json" />
+    <link 
+      rel="stylesheet" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+      crossorigin="anonymous" 
+      referrerpolicy="no-referrer" />
+
+    <!-- SDK do Mercado Pago -->
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    <!-- Biblioteca de Máscara de Entrada -->
+    <script src="https://unpkg.com/imask"></script>
+    <script type="module" crossorigin src="/assets/cadastro_viajante_plus-DkE7KHdp.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-B5Qt9EMX.js">
+    <link rel="modulepreload" crossorigin href="/assets/main-DHtEt640.js">
+    <link rel="modulepreload" crossorigin href="/assets/layout-Bzk_Fs54.js">
+    <link rel="modulepreload" crossorigin href="/assets/alert-CuEEcBcm.js">
+    <link rel="stylesheet" crossorigin href="/assets/main-IRI3EpCN.css">
+  </head>
+  <body class="bg-slate-900">
+    <div
+      class="min-h-screen flex items-center justify-center bg-cover bg-center p-4"
+      style="
+        background-image: url('https://images.unsplash.com/photo-1517760444937-f6397edcbbcd?q=80&w=2070&auto=format&fit=crop');
+      "
+    >
+      <div class="absolute inset-0 bg-black/60"></div>
+      
+      <div class="relative w-full max-w-lg" id="form-container">
+        <div class="glass-effect p-8 rounded-2xl shadow-2xl">
+          <div class="text-center mb-6">
+            <h1 class="text-4xl font-extrabold text-white">Seja um Viajante <span class="text-gradient-gold">Plus</span></h1>
+            <p class="text-slate-300 mt-2">Crie roteiros com IA, salve favoritos e muito mais.</p>
+          </div>
+
+          <form id="plus-form" class="space-y-5">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label for="fullName" class="form-label-plus">Nome Completo</label>
+                <input type="text" id="fullName" class="form-input-plus" required />
+              </div>
+              <div>
+                <label for="cpf" class="form-label-plus">CPF</label>
+                <input type="text" id="cpf" class="form-input-plus" required />
+              </div>
+            </div>
+            <div>
+              <label for="email" class="form-label-plus">E-mail</label>
+              <input type="email" id="email" class="form-input-plus" required autocomplete="email"/>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+               <div>
+                <label for="password" class="form-label-plus">Senha (mín. 6 caracteres)</label>
+                <input type="password" id="password" minlength="6" class="form-input-plus" required />
+              </div>
+              <div>
+                <label for="confirmPassword" class="form-label-plus">Confirme a Senha</label>
+                <input type="password" id="confirmPassword" minlength="6" class="form-input-plus" required />
+              </div>
+            </div>
+
+            <!-- Campos do Mercado Pago -->
+            <div id="payment-brick-container" class="mt-6">
+                <h3 class="text-lg font-semibold text-center text-white mb-4">Informações de Pagamento</h3>
+                <div id="cardPaymentBrick_container"></div>
+            </div>
+            
+            <div id="form-message" class="text-red-400 text-sm text-center"></div>
+
+            <div class="pt-4">
+              <button type="submit" id="submit-btn" class="w-full font-bold bg-amber-500 hover:bg-amber-600 text-slate-900 py-3 rounded-lg transition-transform transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center">
+                  <span id="submit-text">Assinar por R$29,90/ano</span>
+                  <div id="submit-loading" class="hidden modern-spinner-btn"></div>
+              </button>
+            </div>
+          </form>
+           <p class="text-center text-sm text-slate-400 mt-6">
+              Já tem uma conta? <a href="/pagina_login.html" class="font-semibold text-amber-400 hover:underline">Faça login</a>.
+            </p>
+        </div>
+      </div>
+      
+       <!-- Tela de Sucesso -->
+      <div id="success-container" class="hidden text-center glass-effect rounded-2xl shadow-2xl p-10 max-w-lg">
+          <i class="fas fa-check-circle text-6xl text-green-400 mb-4"></i>
+          <h2 class="text-4xl font-extrabold text-white">Parabéns!</h2>
+          <p class="mt-4 text-slate-200 text-lg">Sua conta <span class="font-bold text-gradient-gold">Plus</span> foi ativada com sucesso!</p>
+          <p class="mt-2 text-slate-300">Você já pode desfrutar de todos os benefícios exclusivos.</p>
+          <a href="/pagina_login.html" class="mt-8 inline-block bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-3 px-8 rounded-lg transition-colors text-lg">
+              <i class="fas fa-sign-in-alt mr-2"></i>Fazer Login
+          </a>
+      </div>
+
+    </div>
+  </body>
+</html>

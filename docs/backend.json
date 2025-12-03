@@ -1,0 +1,239 @@
+
+{
+  "entities": {
+    "UserProfile": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "User Profile",
+      "description": "Represents a user's public and private profile data.",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "The unique identifier for the user, matching the Firebase Auth UID."
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "The user's email address."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "The user's display name."
+        },
+        "photoURL": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL of the user's profile picture."
+        },
+        "plan": {
+          "type": "string",
+          "description": "The user's subscription plan (e.g., 'free', 'plus').",
+          "enum": ["free", "plus"]
+        },
+        "preferences": {
+          "type": "array",
+          "description": "User's travel preferences.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "trialStartDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date when the user's free trial period started."
+        }
+      },
+      "required": ["uid", "email", "displayName", "plan"]
+    },
+    "WishlistItem": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Wishlist Item",
+      "description": "Represents an item in a user's travel wishlist.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the wishlist item."
+        },
+        "interest": {
+          "type": "string",
+          "description": "The main interest or destination of the item (e.g., 'Praias no Nordeste')."
+        },
+        "notes": {
+          "type": "string",
+          "description": "User's personal notes about the item."
+        },
+        "plannedDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The planned date for the travel."
+        },
+        "imageUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL of an image representing the item."
+        },
+        "userId": {
+          "type": "string",
+          "description": "The UID of the user who owns this item."
+        }
+      },
+      "required": ["id", "interest", "userId"]
+    },
+    "Partner": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Partner",
+      "type": "object",
+      "description": "Represents a business partner or advertiser on the platform.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the Partner entity."
+        },
+        "businessName": {
+          "type": "string",
+          "description": "The name of the partner's business."
+        },
+        "category": {
+          "type": "string",
+          "description": "The category of the partner's services (e.g., 'agencias', 'hospedagem')."
+        },
+        "city": {
+          "type": "string",
+          "description": "The city where the partner is located."
+        },
+        "state": {
+          "type": "string",
+          "description": "The state where the partner is located."
+        },
+        "image": {
+          "type": "string",
+          "description": "URL of the partner's profile image.",
+          "format": "uri"
+        },
+        "galleryImages": {
+          "type": "array",
+          "description": "URLs of images in the partner's gallery.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tags": {
+          "type": "array",
+          "description": "Keywords or tags associated with the partner's services.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "searchTerms": {
+          "type": "array",
+          "description": "An array of keywords for searching, automatically generated from business name, category, location, and tags.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "status": {
+          "type": "string",
+          "description": "The status of the partner's profile (e.g., 'aprovado', 'pending')."
+        },
+        "plan": {
+          "type": "string",
+          "description": "The subscription plan of the partner (e.g., 'free', 'basic', 'plus', 'advance')."
+        },
+        "userId": {
+          "type": "string",
+          "description": "Reference to User. (Relationship: User 1:1 Partner)"
+        }
+      },
+      "required": [
+        "id",
+        "businessName",
+        "category",
+        "city",
+        "state",
+        "status",
+        "userId"
+      ]
+    },
+    "Roteiro": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Roteiro",
+      "type": "object",
+      "description": "Represents a trip itinerary generated by the AI.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the Roteiro entity."
+        },
+        "prompt": {
+          "type": "string",
+          "description": "The prompt used to generate the itinerary."
+        },
+        "itineraryData": {
+          "type": "string",
+          "description": "The generated itinerary data."
+        },
+        "userId": {
+          "type": "string",
+          "description": "Reference to User. (Relationship: User 1:N Roteiro)"
+        }
+      },
+      "required": [
+        "id",
+        "prompt",
+        "itineraryData",
+        "userId"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "google.com"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/users/{userId}",
+        "definition": {
+          "entityName": "UserProfile",
+          "schema": {
+            "$ref": "#/entities/UserProfile"
+          },
+          "description": "Collection for storing user profiles. Each document is identified by the user's unique ID."
+        }
+      },
+      {
+        "path": "/users/{userId}/wishlist/{itemId}",
+        "definition": {
+          "entityName": "WishlistItem",
+          "schema": {
+            "$ref": "#/entities/WishlistItem"
+          },
+          "description": "Subcollection for storing a user's wishlist items."
+        }
+      },
+      {
+        "path": "/partners/{partnerId}",
+        "definition": {
+          "entityName": "Partner",
+          "schema": {
+            "$ref": "#/entities/Partner"
+          },
+          "description": "Collection for storing partner profiles. Includes 'userId' for authorization independence (User 1:1 Partner)."
+        }
+      },
+      {
+        "path": "/users/{userId}/roteiros/{roteiroId}",
+        "definition": {
+          "entityName": "Roteiro",
+          "schema": {
+            "$ref": "#/entities/Roteiro"
+          },
+          "description": "Subcollection for storing user-created itineraries. Each document is identified by the itinerary's unique ID."
+        }
+      }
+    ]
+  }
+}
